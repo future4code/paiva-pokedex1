@@ -4,7 +4,6 @@ import Router from "../src/Routes/Router";
 function App() {
   return (
     <div>
-      PokeDex
       <Router/>
     </div>
   );
