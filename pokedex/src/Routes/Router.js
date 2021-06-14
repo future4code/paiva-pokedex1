@@ -1,4 +1,9 @@
+import React from "react";
 import {BrowserRouter, Switch, Route} from 'react-dom'
+import CardDetails from "../Components/CardDetails";
+import CardPoke from "../Components/CardPoke";
+import ErrorPage from "../Pages/Error/ErrorPage";
+import HomePage from "../Pages/HomePage/HomePage";
 
 
 
@@ -8,16 +13,16 @@ export default function Router() {
 <BrowserRouter>
 <Switch>
     <Route exact path="/">
-        <Pokelist/>
+        <CardPoke/>
     </Route>
     <Route exact path="/page/:page">
-        <Pokelist/>
+        <CardPoke/>
     </Route>
     <Route exact path="/character/:id">
-        <PokeDetail/>
+        <CardDetails/>
     </Route>
     <Route>
-        <Pokedex/>
+        <HomePage/>
     </Route>
     <Route>
         <ErrorPage/>
