@@ -1,47 +1,47 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { BASE_URL } from "../Constants/url";
 
-export default class App extends React.Component {
-  state = {
-    listPokemons: [],
-    photoPokemon: ""
-  };
+function CardPoke () {
+    const [data, setData] = useState([]);
 
-  pegarPokemons = () => {
+    const [photo, setPhoto] = useState({});  
+
+  
+    const pegarPokemons = () => {
     axios
-      .get({})
+      .get(`${BASE_URL}/?offset=20&limit=20`)
       .then((resposta) => {
-        this.setState({ listPokemons: resposta.data.results });
+        setData(resposta.data);
       })
       .catch((erro) => {
         console.log(erro);
       });
   };
 
-  pegarPhotoPokemon = (nome) => {
+  const pegarPhotoPokemon = () => {
     axios
-      .get(``)
+      .get(`${BASE_URL}/spearow`)
       .then((resposta) => {
-        this.setState({ photoPokemon: resposta.data.sprites.front_default });
+        setPhoto({ photoPokemon: resposta.data.sprites.front_default });
       })
       .catch((erro) => {
         console.log(erro);
       });
   };
+  console.log('foto', photo);
+  console.log('nome', data);
 
- 
+  useEffect(() =>{
+      pegarPokemons();
+      pegarPhotoPokemon();
+  },[])
 
-  componentDidMount() {
-    this.pegarPokemons();
-  }
-
-  render() {
     return (
       <div className="App">
-        <div>
+        {/*<div>
            <option value={""}></option>
-            {this.state.listPokemons.map((poke) => {
+            {data.listPokemons.map((poke) => {
               return (
                 <option key={poke.name} value={poke.name}>
                   {poke.name}
@@ -52,8 +52,9 @@ export default class App extends React.Component {
         </div>
         {this.state.imagemPokemon && (
           <img alt={"photo"} src={this.state.imagemPokemon} />
-        )}
+        )}*/}
       </div>
     );
-  }
 }
+
+export default CardPoke;
