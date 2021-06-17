@@ -1,58 +1,52 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import styled from 'styled-components'
 import { BASE_URL } from "../Constants/url";
 
-function CardPoke () {
-    const [data, setData] = useState([]);
+const ImgPoke = styled.img`
+width: 150px;
+`
+
+
+
+function CardPoke (props) {
+    // const [data, setdata] = useState([]);
 
     const [photo, setPhoto] = useState({});  
 
   
-    const pegarPokemons = () => {
-    axios
-      .get(`${BASE_URL}/?offset=20&limit=20`)
-      .then((resposta) => {
-        setData(resposta.data);
-      })
-      .catch((erro) => {
-        console.log(erro);
-      });
-  };
+  //   const pegarPokemons = () => {
+  //   axios
+  //     .get(`${BASE_URL}`)
+  //     .then((resposta) => {
+  //       setdata(resposta.data);
+  //     })
+  //     .catch((erro) => {
+  //       console.log(erro);
+  //     });
+  // };
 
-  const pegarPhotoPokemon = () => {
+  const pegarPhotoPokemon = (nome) => {
     axios
-      .get(`${BASE_URL}/spearow`)
+      .get(`${BASE_URL}/${props.nome}`)
       .then((resposta) => {
-        setPhoto({ photoPokemon: resposta.data.sprites.front_default });
+        setPhoto(resposta.data.sprites.front_default);
       })
       .catch((erro) => {
         console.log(erro);
       });
   };
   console.log('foto', photo);
-  console.log('nome', data);
+  
 
   useEffect(() =>{
-      pegarPokemons();
+      // pegarPokemons();
       pegarPhotoPokemon();
   },[])
 
     return (
       <div className="App">
-        {/*<div>
-           <option value={""}></option>
-            {data.listPokemons.map((poke) => {
-              return (
-                <option key={poke.name} value={poke.name}>
-                  {poke.name}
-                </option>
-              );
-            })}
-        
-        </div>
-        {this.state.imagemPokemon && (
-          <img alt={"photo"} src={this.state.imagemPokemon} />
-        )}*/}
+            <ImgPoke src={photo} alt='foto pokemon'/>
       </div>
     );
 }
