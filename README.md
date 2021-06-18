@@ -7,7 +7,7 @@ Nome dos integrantes:
 - Janaina Garcia Franquis
 - Micheline Farias Felix Barros
 
-Link do Surge: nonchalant-payment.surge.sh
+Link do Surge: https://nonchalant-payment.surge.sh/
 
 O que funciona:
 
