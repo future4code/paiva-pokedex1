@@ -1,29 +1,29 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { goToPokedex } from "../../Routes/coordinator";
+import { goToPokedex, goTohome } from "../../Routes/coordinator";
 import { ContainerHeader, ContainerButtonLeft, ContainerButtonRigth } from './styled';
 
 const Header = ({ title, ButtonLeft, ButtonRigth}) => {
   const history = useHistory();
 
-  const buttonTitleLeft = () => {
-    switch (title) {
-      case "Lista de Pokemon":
-        return "Pokedex";
-      case "Pokédex":
-        return "Voltar";
-      default:
-        return "Voltar";
-    }
-  };
+  // const buttonTitleLeft = () => {
+  //   switch (title) {
+  //     case "Lista de Pokemon":
+  //       return "Pokedex";
+  //     case "Pokédex":
+  //       return "Voltar";
+  //     default:
+  //       return "Voltar";
+  //   }
+  // };
 
   return (
     <ContainerHeader>
-      <ContainerButtonLeft onClick={ButtonLeft}>
-        {buttonTitleLeft()}
+      <ContainerButtonLeft onClick={()=>goTohome(history)}>
+        {/* {buttonTitleLeft()} */}Voltar para a Home
       </ContainerButtonLeft>
 
-      <h1>Pokedex</h1>
+      <h1>{title}</h1>
      
 
         <ContainerButtonRigth onClick={() => goToPokedex(history)}>
