@@ -1,7 +1,7 @@
 import React from "react";
 import {useParams} from "react-router-dom"
 import useRequestData from "../../hooks/useRequest";
-import {ContainerPhoto, PokeImage, MainContainer } from "./Styled"
+import {ContainerPhoto, PokeImage, MainContainer, ContainerDetalhes, Container } from "./Styled"
 import { BASE_URL } from "../../Constants/url"
 
 
@@ -10,7 +10,7 @@ function CardDetails() {
   const pokeDetails = useRequestData({},`${BASE_URL}/${params.id}`);
   const pokemon = pokeDetails[0]
   return (
-    <div>
+    <Container>
       {pokemon && pokemon.forms ? (
         <MainContainer>
           <>{pokemon.forms.name}</>
@@ -21,18 +21,23 @@ function CardDetails() {
                   src={pokemon.sprites.front_default}
                   alt={pokemon.forms.name}
                 />
+                 <PokeImage
+                  src={pokemon.sprites.back_default}
+                  alt={pokemon.forms.name}
+                />
               </ContainerPhoto>
-              <>
+              <ContainerDetalhes>
                 <p>
                   <h3>Tipos:</h3>
                 </p>
                 {pokemon.types.map((item) => {
                   return <p>{item.type.name}</p>;
                 })}
-              </>
+              </ContainerDetalhes>
             </>
             <>
-              <>
+              <ContainerDetalhes>
+              <h3>Poderes:</h3>
                 {pokemon.stats.map((item) => {
                   return (
                     <p>
@@ -41,20 +46,20 @@ function CardDetails() {
                     </p>
                   );
                 })}
-              </>
+              </ContainerDetalhes>
             </>
             <>
-              <>
-                <h3>Principais Ataques</h3>
+              <ContainerDetalhes>
+                <h3>Principais Ataques:</h3>
                 {pokemon.moves.map((item, index) => {
                   return index < 5 && <p>{item.move.name}</p>;
                 })}
-              </>
+              </ContainerDetalhes>
             </>
           </>
         </MainContainer>
       ) : null}
-    </div>
+    </Container>
   );
 }
 export default CardDetails;

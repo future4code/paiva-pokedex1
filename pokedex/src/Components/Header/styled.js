@@ -13,10 +13,14 @@ export const ContainerHeader = styled.header`
 export const ContainerButtonLeft = styled.button`
   position: absolute;
   left: 15px;
+  border-radius: 10px;
+  border: 3px solid #5FC480;
 `;
 
 export const ContainerButtonRigth = styled.button`
   position: absolute;
   right: 15px;
+  border-radius: 10px;
+  border: 3px solid #5FC480;
 `;
 
