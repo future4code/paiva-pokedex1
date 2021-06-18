@@ -20,14 +20,14 @@ const Header = ({ title, ButtonLeft, ButtonRigth}) => {
   return (
     <ContainerHeader>
       <ContainerButtonLeft onClick={()=>goTohome(history)}>
-        {/* {buttonTitleLeft()} */}Voltar para a Home
+        {/* {buttonTitleLeft()} */}Home
       </ContainerButtonLeft>
 
       <h1>{title}</h1>
      
 
         <ContainerButtonRigth onClick={() => goToPokedex(history)}>
-          Ir para pokedex
+          Pokedex
         </ContainerButtonRigth>
       
     </ContainerHeader>

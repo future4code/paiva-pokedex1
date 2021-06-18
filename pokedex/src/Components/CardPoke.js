@@ -36,8 +36,6 @@ function CardPoke (props) {
         console.log(erro);
       });
   };
-  console.log('foto', photo);
-  
 
   useEffect(() =>{
       // pegarPokemons();

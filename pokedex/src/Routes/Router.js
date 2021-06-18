@@ -13,10 +13,6 @@ function Router() {
           <HomePage />
         </Route>
 
-        <Route exact path="/page/:page">
-          <HomePage />
-        </Route>
-
         <Route exact path="/pokedex">
           <PokedexPage />
         </Route>
