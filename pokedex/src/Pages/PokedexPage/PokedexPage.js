@@ -6,35 +6,33 @@ import Header from "../../Components/Header/Header";
 import {DivContainer, Card, ButtonCard} from "./Styled"
 import {goToDetail} from "../../Routes/coordinator"
 import { useHistory } from "react-router-dom";
+import { useGlobal, useGlobalSetters, useGlobalStates } from "../../Global/GlobalState";
 
 function PokedexPage () {
-  const pokemons = useRequestData ({},`${BASE_URL}`)
   
-  // const photo = useRequestData ({}, `${BASE_URL}/1`)
-  // const pegarPokemon = (nome) => {
-  //   axios
-  //     .get(``)
-  //     .then((resposta) => {
-  //       this.setState({ photoPokemon: resposta.data.sprites.front_default });
-  //     })
-  //     .catch((erro) => {
-  //       console.log(erro);
-  //     });
-  // };
+  const pokebolaVolta = (id) =>{
+    const copiaLista = [...listaDePokemon]
+    copiaLista.forEach((poke)=>{
+      if(poke.name===id){poke.pokedex = false}
+    })
+    setListaDePokemon(copiaLista)
+  }
 
 const history = useHistory()
-  
+const { listaDePokemon } =  useGlobalStates()
+const {setListaDePokemon} = useGlobalSetters()
+
   return (
     <div>
       <Header title={"Pokedex"}/>
         <DivContainer>
-          {pokemons && pokemons[0].results && pokemons[0].results.map((poke)=>{
+          {listaDePokemon && listaDePokemon.filter(tira=>{return tira.pokedex}).map((poke)=>{
               return(
                   <Card>
                     <CardPoke nome={poke.name} />
                     <h2>{poke.name}</h2>
                     <div>
-                      <ButtonCard>Remover da Pokedex</ButtonCard>
+                      <ButtonCard onClick ={()=>pokebolaVolta(poke.name)}>Remover da Pokedex</ButtonCard>
                       <ButtonCard onClick={()=>goToDetail(history,poke.name)} >Ver Detalhes</ButtonCard>
                     </div>
                   </Card>  

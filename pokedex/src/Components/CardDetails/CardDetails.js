@@ -8,7 +8,7 @@ import { BASE_URL } from "../../Constants/url"
 function CardDetails() {
   const params = useParams();
   const pokeDetails = useRequestData({},`${BASE_URL}/${params.id}`);
-  const pokemon = pokeDetails[0]
+  const pokemon = pokeDetails
   return (
     <Container>
       {pokemon && pokemon.forms ? (
