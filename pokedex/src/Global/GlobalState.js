@@ -1,16 +1,15 @@
 import {GlobalStateContext} from './GlobalStateContext'
 import React, { useContext, useEffect, useState } from 'react'
-import useRequestData from '../hooks/useRequest'
 import { BASE_URL } from "../Constants/url";
-
+import { useLoopHook } from '../hooks/useLoopHook';
 export const GlobalState = (props) => {
   const [pokedex, setPokedex] = useState([])
   const [listaDePokemon, setListaDePokemon] = useState([])
-  const listaInicial = useRequestData([], BASE_URL)
+  const listaInicial = useLoopHook([], BASE_URL)
+  
   useEffect(()=>{
-  setListaDePokemon(listaDePokemons)
+  setListaDePokemon(listaInicial)
   },[listaInicial])
-  const listaDePokemons = listaInicial.results
 
   const states = {pokedex, listaDePokemon}
   const setters = {setPokedex, setListaDePokemon}

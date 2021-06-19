@@ -1,12 +1,10 @@
 import React from "react";
-import { BASE_URL } from "../../Constants/url";
-import useRequestData from "../../hooks/useRequest";
 import CardPoke from "../../Components/CardPoke";
 import Header from "../../Components/Header/Header";
 import {DivContainer, Card, ButtonCard} from "./Styled"
 import { useHistory } from "react-router-dom";
 import { goToDetail} from "../../Routes/coordinator"
-import { useGlobal, useGlobalSetters, useGlobalStates } from "../../Global/GlobalState";
+import {useGlobalSetters, useGlobalStates } from "../../Global/GlobalState";
 
 
 function HomePage() {
@@ -26,10 +24,10 @@ const {setListaDePokemon} = useGlobalSetters()
     <div>
       <Header title={"PokeHome"}/>
         <DivContainer>
-          {listaDePokemon && listaDePokemon.filter(tira=>{return !tira.pokedex}).map((poke)=>{
+          {listaDePokemon && listaDePokemon.sort(function(a, b){return a.number-b.number}).filter(tira=>{return !tira.pokedex}).map((poke)=>{
               return(
-                  <Card>
-                    <CardPoke nome={poke.name} />
+                  <Card key={poke.name}>
+                    <CardPoke nome={poke.name} photo={poke.front_default} />
                     <h2>{poke.name}</h2>
                     <div>
                       <ButtonCard onClick={()=>pokebolaVai(poke.name)} >Adicionar a Pokedex</ButtonCard>

@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React from "react";
 import styled from 'styled-components'
-import { BASE_URL } from "../Constants/url";
 
 const ImgPoke = styled.img`
 width: 150px;
@@ -10,41 +8,28 @@ width: 150px;
 
 
 function CardPoke (props) {
-    // const [data, setdata] = useState([]);
 
-    const [photo, setPhoto] = useState({});  
+  //   const [photo, setPhoto] = useState({});  
 
-  
-  //   const pegarPokemons = () => {
+
+  // const pegarPhotoPokemon = (nome) => {
   //   axios
-  //     .get(`${BASE_URL}`)
+  //     .get(`${BASE_URL}/${props.nome}`)
   //     .then((resposta) => {
-  //       setdata(resposta.data);
+  //       setPhoto(resposta.data.sprites.front_default);
   //     })
   //     .catch((erro) => {
   //       console.log(erro);
   //     });
   // };
 
-  const pegarPhotoPokemon = (nome) => {
-    axios
-      .get(`${BASE_URL}/${props.nome}`)
-      .then((resposta) => {
-        setPhoto(resposta.data.sprites.front_default);
-      })
-      .catch((erro) => {
-        console.log(erro);
-      });
-  };
-
-  useEffect(() =>{
-      // pegarPokemons();
-      pegarPhotoPokemon();
-  },[])
+  // useEffect(() =>{
+  //     pegarPhotoPokemon();
+  // },[])
 
     return (
       <div className="App">
-            <ImgPoke src={photo} alt='foto pokemon'/>
+            <ImgPoke src={props.photo} alt={props.name}/>
       </div>
     );
 }

@@ -10,13 +10,13 @@ const useRequestData = (initial, url) => {
       .get(url)
       .then((response) => {
         setData(response.data);
+
       })
       .catch((error) => {
         console.log(error);
         // alert("Ocorreu um erro, tente novamente");
       });
   }, [url]);
-
   return data;
 };
 
