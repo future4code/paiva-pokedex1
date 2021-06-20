@@ -24,4 +24,5 @@ export const ButtonCard = styled.button `
   background-color:#5FC480;
   border-radius: 5px;
   font-weight: bold;
+  cursor: pointer;
 `

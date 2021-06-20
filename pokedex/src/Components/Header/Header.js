@@ -6,21 +6,10 @@ import { ContainerHeader, ContainerButtonLeft, ContainerButtonRigth } from './st
 const Header = ({ title, ButtonLeft, ButtonRigth}) => {
   const history = useHistory();
 
-  // const buttonTitleLeft = () => {
-  //   switch (title) {
-  //     case "Lista de Pokemon":
-  //       return "Pokedex";
-  //     case "Pokédex":
-  //       return "Voltar";
-  //     default:
-  //       return "Voltar";
-  //   }
-  // };
-
   return (
     <ContainerHeader>
       <ContainerButtonLeft onClick={()=>goTohome(history)}>
-        {/* {buttonTitleLeft()} */}Home
+       Home
       </ContainerButtonLeft>
 
       <h1>{title}</h1>

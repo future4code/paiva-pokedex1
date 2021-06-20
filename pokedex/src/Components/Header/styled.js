@@ -15,6 +15,7 @@ export const ContainerButtonLeft = styled.button`
   left: 15px;
   border-radius: 10px;
   border: 3px solid #5FC480;
+  cursor: pointer;
 `;
 
 export const ContainerButtonRigth = styled.button`
@@ -22,5 +23,6 @@ export const ContainerButtonRigth = styled.button`
   right: 15px;
   border-radius: 10px;
   border: 3px solid #5FC480;
+  cursor: pointer;
 `;
 
