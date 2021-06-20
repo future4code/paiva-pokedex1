@@ -7,17 +7,19 @@
 - Janaina Garcia Franquis
 - Micheline Farias Felix Barros
 
-Link do Surge: https://nonchalant-payment.surge.sh/
+Link do Surge: https://paiva-pokedex1.surge.sh/
 
 **Sobre**
 Pokédex é uma aplicação desenvolvida em React JS. Como fonte de dados para o projeto usamos a PokeAPI (https://pokeapi.co/).
 
 **Recursos utilizados**
+- React;
 - Axios;
 - Hooks;
 - Styled Components;
 - Route;
-- 
+- Global State;
+
 
 **O que contém:**
 - Página Home - que renderiza uma lista de 20 pokemons vindos da API;
@@ -32,10 +34,14 @@ Pokédex é uma aplicação desenvolvida em React JS. Como fonte de dados para o
 - Botão que leva a página pokedex;
 - Botão que retorna a home;
 - Responsividade da Home;
+- Adicionar e remover pokemons da Pokedex;
+- responsividade das páginas;
 
-**O que não funciona:**
-- responsividade da página de detalhes;
-- Pokedex ainda não foi implementada a função que pega os Pokemons;
+**Não implementado:**
+- Implementar a paginação de todos os pokemons disponíveis;
+- Comparar pokemons e novas funcionalidades para batalha;
+
+
 
 
 
