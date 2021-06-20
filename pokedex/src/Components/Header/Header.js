@@ -9,7 +9,7 @@ const Header = ({ title, ButtonLeft, ButtonRigth}) => {
   return (
     <ContainerHeader>
       <ContainerButtonLeft onClick={()=>goTohome(history)}>
-       Home
+        Home
       </ContainerButtonLeft>
 
       <h1>{title}</h1>
