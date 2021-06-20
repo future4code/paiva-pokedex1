@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const DivContainer = styled.div `
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap:wrap;
 `
 export const Card = styled.div `
